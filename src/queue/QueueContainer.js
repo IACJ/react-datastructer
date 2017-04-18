@@ -34,7 +34,6 @@ export default class Container extends Component {
                                 return;
                             } 
                             getDataStructer().randomAdd();
-                            console.log('调用randomAdd函数');
                             refresh();
                         }}/>
                     <RaisedButton label="清零" primary={true} className="btn" onTouchTap={ 

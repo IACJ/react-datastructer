@@ -34,7 +34,6 @@ export default class Container extends Component {
                                 return;
                             } 
                             getDataStructer().randomAdd();
-                            console.log('调用randomAdd函数');
                             refresh();
                         }}/>
                     <RaisedButton label="清零" primary={true} className="btn" onTouchTap={ 
@@ -56,7 +55,7 @@ export default class Container extends Component {
                         <p> 其限制是仅允许在表的一端进行插入和删除运算,这一端被称为栈顶，相对地，把另一端称为栈底。</p>
                         <p> 向一个栈插入新元素又称作进栈、入栈或压栈；从一个栈删除元素又称作出栈或退栈。</p>
                         <p> 请通过“拖拽”或“点击按钮”进行操作</p>
-                        <p>(提示：根据队列性质，已对拖拽进行相应限制，试试看！)</p>
+                        <p>(提示：根据栈的性质，已对拖拽进行相应限制，试试看！)</p>
                         <p>(提示：打开console查看数据结构操作的log)</p>
                     </MyDialog>
 

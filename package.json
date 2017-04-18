@@ -1,0 +1,26 @@
+{
+  "name": "datastructer-dnd",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "0.9.5"
+  },
+  "dependencies": {
+    "add": "^2.0.6",
+    "material-ui": "^0.17.1",
+    "react": "^15.4.2",
+    "react-dnd": "^2.2.4",
+    "react-dnd-html5-backend": "^2.2.4",
+    "react-dom": "^15.4.2",
+    "react-router": "^4.0.0",
+    "react-router-dom": "^4.0.0",
+    "react-tap-event-plugin": "^2.0.1",
+    "yarn": "^0.21.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

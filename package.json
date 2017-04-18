@@ -17,6 +17,7 @@
     "react-tap-event-plugin": "^2.0.1",
     "yarn": "^0.21.3"
   },
+  "homepage": "https://iacj.github.io/react-datastructer",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

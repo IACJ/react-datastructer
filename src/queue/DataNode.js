@@ -7,7 +7,7 @@ import '../common/activeNode.css';
 
 const dataNodeSource = {
     canDrag(props){
-        if (props.position === 0 || props.position=="WaitingArea"){
+        if (props.position === 0 || props.position==="WaitingArea"){
             return true;
         }
         return false;

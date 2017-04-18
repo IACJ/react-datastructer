@@ -77,6 +77,11 @@
 a:-webkit-any-link:active{
     color: -webkit-link !important;
 }
+a:-webkit-any-link{
+    color: -webkit-link !important;
+    text-decoration-color: #000;
+}
+
 
 * {
     user-select:none !important

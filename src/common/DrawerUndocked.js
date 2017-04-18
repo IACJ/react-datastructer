@@ -30,7 +30,7 @@ export default class DrawerUndocked extends React.Component {
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
         >
-          <Link to="/"><MenuItem onTouchTap={this.handleClose}><p style={{textDecoration:'none'}}>主页</p></MenuItem></Link>
+          <Link to="/"><MenuItem onTouchTap={this.handleClose}><p>主页</p></MenuItem></Link>
           <Link to="/heap"><MenuItem onTouchTap={this.handleClose}>堆 (Heap)</MenuItem></Link>
           <Link to="/list"><MenuItem onTouchTap={this.handleClose}>线性表 (List)</MenuItem></Link>
           <Link to="/bst"><MenuItem onTouchTap={this.handleClose}>二叉搜索树 (BST)</MenuItem></Link>

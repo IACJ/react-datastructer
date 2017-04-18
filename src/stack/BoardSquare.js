@@ -6,7 +6,7 @@ import {getDataStructer } from './Control';
 const squareTarget = {
     canDrop(props, monitor) {
       if(monitor.getItem().position==="WaitingArea"&&props.position==="MainArea"
-          &&props.id == getDataStructer().getLength() ){
+          &&props.id === getDataStructer().getLength() ){
         return true;
       }
       return false;

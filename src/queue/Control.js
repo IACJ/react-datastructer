@@ -19,7 +19,7 @@ export function getDataStructer(toX, toY) {
     return queue;
 }
 
-console.log('浏览器宽度（clientWidth）:'+document.body.clientWidth);
+//console.log('浏览器宽度（clientWidth）:'+document.body.clientWidth);
 export function getMaxNum(){
   let dataNodeWidth = 60;
   return Math.floor(document.body.clientWidth /dataNodeWidth) -1;

@@ -3,8 +3,6 @@ export default class Heap {
         this.heap = [];
         this.length = 0;
         this.isMaxHeap = true;
-        this.keys = []; //魔改key
-        this.keyIndex = 1; //魔改key
     }
 
     isLeaf(position) {
@@ -31,10 +29,6 @@ export default class Heap {
         var temp = this.heap[index1];
         this.heap[index1] = this.heap[index2];
         this.heap[index2] = temp;
-
-        var temp2 = this.keys[index1]; //魔改key
-        this.keys[index1] = this.keys[index2]; //魔改key
-        this.keys[index2] = temp2;  //魔改key
     }
 
     compareAccordingToHeapType(num1, num2) {
@@ -76,7 +70,6 @@ export default class Heap {
     buildHeapWithArray(array) {
         for (var i = 0; i < array.length; i++){
             this.heap[i] = array[i];
-            this.keys[i] = this.keyIndex++; // 魔改key
         }
         this.length = array.length;
         this.buildHeap();
@@ -85,26 +78,23 @@ export default class Heap {
     append(elem) {
         var current = this.length++;
         this.heap[current] = elem;
-        this.keys[current] = this.keyIndex++; // 魔改key
         while ((current !== 0) && (this.compareAccordingToHeapType(this.heap[current], this.heap[this.parent(current)]))) {
             this.swap(current, this.parent(current));
             current = this.parent(current);
         }
     }
-
+    /* 该方法暂时不用*/
     insert(position, elem) {
         if ((position > this.length) || (position < 0)) {
             console.log("位置超出范围");
             return;
         }
 
-        /* 该方法暂时不用*/
+
         for (var i = this.length; i > position; i--)
             this.heap[i] = this.heap[i - 1];
         this.heap[position] = elem;
         this.length++;
-
-        this.keys[position] = this.keyIndex++; // 魔改key
         this.buildHeap();
     }
 
@@ -167,21 +157,10 @@ export default class Heap {
         result += this.heap[this.length - 1] + "]";
         console.log(result);
     }
-    // ----------因需要而增添的功能-------------------
 
     // 获取位置为i的元素的值
     get(i){
         return this.heap[i];
-    }
-
-    // 获取位置为i的元素的Key
-    getKey(i){
-        if (i<this.length){
-            return this.keys[i];
-        }else{
-            return i-1000;
-        }
-        
     }
 
     // 与delete同功能的remove函数

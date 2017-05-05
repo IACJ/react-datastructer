@@ -38,7 +38,7 @@ export default class Queue {
             result += this.arr[i] + ',';
         }
         result += this.arr[this.length - 1] + ']';
-        console.log(result);
+        return result;
     }
 
     printinlist() {
@@ -102,7 +102,7 @@ export default class Queue {
         for (var i = 0; i < length; i++){ 
             this.push(this.getRandomInteger(9, 0));
         }
-        console.log("随机生成的队列：")
+        console.log("随机生成的队列："+this.print());
         this.print();
     }   
 }

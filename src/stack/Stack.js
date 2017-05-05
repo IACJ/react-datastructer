@@ -35,7 +35,7 @@ export default class Stack {
             result += this.arr[i] + ',';
         }
         result += this.arr[this.length - 1] + ']';
-        console.log(result);
+        return result;
     }
 
     printinlist() {
@@ -100,7 +100,7 @@ export default class Stack {
         for (var i = 0; i < length; i++){ 
             this.push(this.getRandomInteger(9, 0));
         }
-        console.log("随机生成的栈：")
+        console.log("随机生成的栈："+this.print());
         this.print();
     }   
 }

@@ -42,7 +42,7 @@ class MainArea extends Component {
     }else{
       return  (
         <DataNode id={getDataStructer().get(i)} 
-        position={i} key={getDataStructer().getKey(i)}/>
+        position={i}/>
       );
     }         
   }

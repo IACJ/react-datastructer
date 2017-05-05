@@ -7,8 +7,6 @@ export default class Heap {
         this.poptimes = 0;
         this.length = 0;
         this.isMaxHeap = true;
-        this.keys = []; //魔改key
-        this.keyIndex = 1; //魔改key
     }
 
     isLeaf(position) {
@@ -35,10 +33,6 @@ export default class Heap {
         var temp = this.heap[index1];
         this.heap[index1] = this.heap[index2];
         this.heap[index2] = temp;
-
-        var temp2 = this.keys[index1]; //魔改key
-        this.keys[index1] = this.keys[index2]; //魔改key
-        this.keys[index2] = temp2;  //魔改key
     }
 
     compareAccordingToHeapType(num1, num2) {
@@ -81,7 +75,6 @@ export default class Heap {
         for (var i = 0; i < array.length; i++) {
             this.inlist[this.pushtimes++] = array[i];
             this.heap[i] = array[i];
-            this.keys[i] = this.keyIndex++; // 魔改key
         }
         this.length = array.length;
         this.buildHeap();
@@ -91,7 +84,6 @@ export default class Heap {
         this.inlist[this.pushtimes++] = elem;
         var current = this.length++;
         this.heap[current] = elem;
-        this.keys[current] = this.keyIndex++; // 魔改key
         while ((current !== 0) && (this.compareAccordingToHeapType(this.heap[current], this.heap[this.parent(current)]))) {
             this.swap(current, this.parent(current));
             current = this.parent(current);
@@ -109,8 +101,6 @@ export default class Heap {
             this.heap[i] = this.heap[i - 1];
         this.heap[position] = elem;
         this.length++;
-
-        this.keys[position] = this.keyIndex++; // 魔改key
         this.buildHeap();
     }
 
@@ -163,7 +153,7 @@ export default class Heap {
         for (var i = 0; i < length; i++)
             array[i] = this.getRandomInteger(9, 0);
         this.buildHeapWithArray(array);
-        console.log("随机生成的堆：")
+        console.log("随机生成的堆："+this.print());
         this.print();
     }
     print() {
@@ -171,7 +161,7 @@ export default class Heap {
         for (var i = 0; i < this.length - 1; i++)
             result += this.heap[i] + ",";
         result += this.heap[this.length - 1] + "]";
-        console.log(result);
+        return result;
     }
 
     printinlist() {
@@ -198,16 +188,6 @@ export default class Heap {
     // 获取位置为i的元素的值
     get(i) {
         return this.heap[i];
-    }
-
-    // 获取位置为i的元素的Key
-    getKey(i) {
-        if (i < this.length) {
-            return this.keys[i];
-        } else {
-            return i - 1000;
-        }
-
     }
 
     // 与delete同功能的remove函数

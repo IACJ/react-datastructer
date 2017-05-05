@@ -23,8 +23,19 @@ export default class MyDialog extends React.Component {
     this.setState({open: false});
   };
 
+  handleNewWindow =() => {
+    window.open (this.props.src);  
+  }
+
   render() {
+    const {primary,secondary,src} = this.props;
     const actions = [
+        src? 
+        <FlatButton
+        label="查看该数据结构源代码(JS版)"
+        secondary={true}
+        onTouchTap={this.handleNewWindow}
+      /> : null,
       <FlatButton  
         label="太长不看..."
         primary={true}
@@ -37,7 +48,7 @@ export default class MyDialog extends React.Component {
         onTouchTap={this.handleClose}
       />,
     ];
-    const {primary,secondary} = this.props;
+
     return (
       <div style={{display:'inline'} }>
         <RaisedButton label={this.props.label} className='btn'  primary={primary} secondary={secondary} onTouchTap={this.handleOpen} />

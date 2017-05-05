@@ -49,7 +49,7 @@ export default class Container extends Component {
               reBegin();
             }}/>
           
-          <MyDialog label="帮助" title="线性表(List)" secondary={true} >
+          <MyDialog label="帮助" title="线性表(List)" secondary={true} src="https://github.com/IACJ/react-datastructer/blob/master/src/list/ArrayList.js">
             <h4>线性表(List) 是一类常见的简单数据结构。</h4>
             <p> 一个线性表是n个具有相同特性的数据元素的有限序列。数据元素是一个抽象的符号，其具体含义在不同的情况下一般不同。</p>
             <p> 线性表主要由顺序表示或链式表示。在实际应用中，常以栈、队列、字符串等特殊形式使用。</p>

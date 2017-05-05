@@ -7,7 +7,7 @@ class TTNode extends Component {
       let {children,id} = this.props;
 
       let style={
-            backgroundColor: '#33FF99',
+            backgroundColor: '#99FFAA',
             width: '104px',
             marginLeft: '0.1rem',
             marginRight: '0.1rem',

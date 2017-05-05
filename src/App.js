@@ -11,6 +11,7 @@ import BstContainer from './bst/BstContainer'
 import TTTreeContainer from './tttree/TTTreeContainer'
 import QueueContainer from './queue/QueueContainer'
 import StackContainer from './stack/StackContainer'
+import PQContainer from './heapQueue/HeapContainer'
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
 import Welcome from './welcome/Welcome';
@@ -36,6 +37,7 @@ class App extends Component {
             <Route path="/tttree" component={TTTreeContainer}/>
             <Route path="/queue" component={QueueContainer}/>
             <Route path="/stack" component={StackContainer}/>
+            <Route path="/priorityqueue" component={PQContainer}/>
 
           </div>
         </Router>

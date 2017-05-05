@@ -50,7 +50,7 @@ export default class Container extends Component {
                         }}/>
 
 
-                    <MyDialog label="帮助" title="栈（stack）" secondary={true} >
+                    <MyDialog label="帮助" title="栈（stack）" secondary={true} src="https://github.com/IACJ/react-datastructer/blob/master/src/stack/Stack.js">
                         <h4>栈（stack）又名堆栈(港澳台译作堆叠),是一种受限的线性表</h4>
                         <p> 其限制是仅允许在表的一端进行插入和删除运算,这一端被称为栈顶，相对地，把另一端称为栈底。</p>
                         <p> 向一个栈插入新元素又称作进栈、入栈或压栈；从一个栈删除元素又称作出栈或退栈。</p>

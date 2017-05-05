@@ -39,7 +39,7 @@ export default class Container extends Component {
                             reBegin();
                         }}/>
 
-                    <MyDialog label="帮助" title="二叉搜索树(BST)" secondary={true} >
+                    <MyDialog label="帮助" title="二叉搜索树(BST)" secondary={true} src="https://github.com/IACJ/react-datastructer/blob/master/src/bst/BST.js">
                         <h4>"二叉搜索树(BST)"  是一类特殊的数据结构,满足如下性质:</h4>
                         <p> ① 若它的左子树非空，则左子树上所有结点的值均小于根结点的值；</p>
                         <p> ② 若它的右子树非空，则右子树上所有结点的值均大于根结点的值；</p>

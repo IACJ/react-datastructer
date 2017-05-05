@@ -35,8 +35,10 @@ export default class DrawerUndocked extends React.Component {
           <Link to="/list"><MenuItem onTouchTap={this.handleClose}>线性表 (List)</MenuItem></Link>
           <Link to="/bst"><MenuItem onTouchTap={this.handleClose}>二叉搜索树 (BST)</MenuItem></Link>
           <Link to="/tttree"><MenuItem onTouchTap={this.handleClose}>二三树 (TTTree)</MenuItem></Link>
-          <Link to="/queue"><MenuItem onTouchTap={this.handleClose}>队列 (Queue)</MenuItem></Link>
           <Link to="/stack"><MenuItem onTouchTap={this.handleClose}>栈 (Stack) </MenuItem></Link>
+          <Link to="/queue"><MenuItem onTouchTap={this.handleClose}>FIFO队列 (Queue)</MenuItem></Link>
+          <Link to="/priorityqueue"><MenuItem onTouchTap={this.handleClose}>优先队列 (PQ)</MenuItem></Link>
+
         </Drawer>
       </div>
     );

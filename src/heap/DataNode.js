@@ -7,8 +7,6 @@ import '../common/activeNode.css';
 
 const dataNodeSource = {
     beginDrag(props, monitor, component) {
-        // console.log("[Debug] 节点位置:"+props.position);
-        // console.log("[Debug] 节点key值:"+ getDataStructer().getKey(props.position));
         return {
             name:'dataNode',
             id : props.id,
@@ -49,9 +47,7 @@ function collect(connect, monitor) {
 }
 
 class dataNode extends Component {
-    // componentWillMount(){
-    //   console.log("dataNode componentWillMount");
-    // }
+
 
     render(){
         const { connectDragSource, isDragging } = this.props;

@@ -1,12 +1,10 @@
 import Heap from './Heap'
 
-
-
 let heap = new Heap();
 heap.generateHeap(12);
 
 export function getDataStructer() {
-    return heap;
+  return heap;
 }
 
 export function getMaxNum(){
@@ -20,9 +18,9 @@ export function getRefresher(o) {
   if (refresher) {
     console.log('refresher changed');
   }
-
+  
   refresher= o;
-
+  
   return () => {
     refresher = null;
   };
@@ -33,7 +31,7 @@ export function refresh() {
 }
 export function getLevel(i){
   let ans = 0;
-
+  
   while (i !== 0 ){
     ans ++;
     i = Math.floor((i-1)/2);
@@ -42,8 +40,8 @@ export function getLevel(i){
 }
 
 export function reBegin() {
-    heap = new Heap();
-    heap.generateHeap(12);
-    console.log('重新开始');
-    refresh();
+  heap = new Heap();
+  heap.generateHeap(12);
+  console.log('重新开始');
+  refresh();
 }

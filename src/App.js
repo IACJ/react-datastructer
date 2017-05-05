@@ -23,6 +23,7 @@ class App extends Component {
       <MuiThemeProvider >
         <Router>
           <div className="App">
+            
             <div className="App-header">
               <img src={logo} className="App-logo" alt="logo" />
               <DrawerUndocked className="myDrawer" colored={true} title="打开导航栏"/>
@@ -35,6 +36,7 @@ class App extends Component {
             <Route path="/tttree" component={TTTreeContainer}/>
             <Route path="/queue" component={QueueContainer}/>
             <Route path="/stack" component={StackContainer}/>
+
           </div>
         </Router>
       </MuiThemeProvider>

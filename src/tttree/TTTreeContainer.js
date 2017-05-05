@@ -38,7 +38,7 @@ export default class Container extends Component {
                             reBegin();
                         }}/>
 
-                    <MyDialog label="帮助" title="二三树(Two Three Tree)" colored={true} >
+                    <MyDialog label="帮助" title="二三树(Two Three Tree)" secondary={true} >
                         <h4>"二三树"  是一类特殊的 B-Tree ,满足如下性质:</h4>
                         <p>(1)它的每个节点要么有2个孩子和1个数据元素，要么有3个孩子和2个数据元素，叶子节点没有孩子，并且有1个或2个数据元素。</p>
                         <p>(2)它的所有叶都在同一层上</p>

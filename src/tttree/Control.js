@@ -33,3 +33,8 @@ export function reBegin() {
     console.log('重新开始');
     refresh();
 }
+
+if (document.body.clientWidth<1000){
+  alert("您的浏览器窗口的宽度不足以显示画布，可能会导致移位！\n建议使用更大的窗口访问本页面！\n\
+      推荐宽度: 1000以上 , 您的浏览器窗口宽度: "+ document.body.clientWidth);
+}

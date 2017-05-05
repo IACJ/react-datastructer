@@ -50,7 +50,7 @@ export default class Container extends Component {
                         }}/>
 
 
-                    <MyDialog label="帮助" title="队列(Queue)" colored={true} >
+                    <MyDialog label="帮助" title="队列(Queue)" secondary={true} >
                         <h4>队列是一种特殊的线性表</h4>
                         <p> 它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作</p>
                         <p> 队列是一种操作受限制的线性表。进行插入操作的端称为队尾，进行删除操作的端称为队头。</p>

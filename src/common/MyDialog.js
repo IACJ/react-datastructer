@@ -37,10 +37,10 @@ export default class MyDialog extends React.Component {
         onTouchTap={this.handleClose}
       />,
     ];
-
+    const {primary,secondary} = this.props;
     return (
       <div style={{display:'inline'} }>
-        <RaisedButton label={this.props.label} className='btn'   secondary={this.props.colored} onTouchTap={this.handleOpen} />
+        <RaisedButton label={this.props.label} className='btn'  primary={primary} secondary={secondary} onTouchTap={this.handleOpen} />
         <Dialog
           title={this.props.title}
           actions={actions}

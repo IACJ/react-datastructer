@@ -49,7 +49,7 @@ export default class Container extends Component {
                             reBegin();
                         }}/>
 
-                    <MyDialog label="帮助" title="堆(Heap)" colored={true} >
+                    <MyDialog label="帮助" title="堆(Heap)" secondary={true} >
                         <h4>"堆"  是一类特殊的数据结构,满足如下性质:</h4>
                         <p> (1) 堆中某个节点的值总是不大于或不小于其父节点的值；</p>
                         <p> (2) 堆总是一棵完全二叉树。</p>

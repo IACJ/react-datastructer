@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { DropTarget } from 'react-dnd';
-import ItemTypes from './ItemTypes';
+import ItemTypes from '../common/ItemTypes';
 import {getDataStructer} from './Control';
 
 const squareTarget = {

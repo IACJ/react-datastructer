@@ -1,7 +1,10 @@
 import ArrayList from './ArrayList'
 
 let arrayList = new ArrayList();
-arrayList.buildListWithRandomInteger(6);
+arrayList.buildListWithRandomInteger(8);
+export function getDataStructer(toX, toY) {
+  return arrayList;
+}
 
 let refresher = null;
 export function getRefresher(o) {
@@ -14,24 +17,18 @@ export function getRefresher(o) {
     refresher = null;
   };
 }
-
-export function getDataStructer(toX, toY) {
-    return arrayList;
+export function refresh() {
+  refresher();
 }
 
-console.log('浏览器宽度（clientWidth）:'+document.body.clientWidth);
 export function getMaxNum(){
   let dataNodeWidth = 60;
   return Math.floor(document.body.clientWidth /dataNodeWidth) -1;
 }
 
-export function refresh() {
-  refresher();
-}
-
 export function reBegin() {
-    arrayList = new ArrayList();
-    arrayList.buildListWithRandomInteger(8);
-    console.log('重新开始');
-    refresh();
+  arrayList = new ArrayList();
+  arrayList.buildListWithRandomInteger(8);
+  console.log('重新开始');
+  refresh();
 }

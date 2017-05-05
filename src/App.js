@@ -12,9 +12,12 @@ import TTTreeContainer from './tttree/TTTreeContainer'
 import QueueContainer from './queue/QueueContainer'
 import StackContainer from './stack/StackContainer'
 import PQContainer from './heapQueue/HeapContainer'
+import Welcome from './welcome/Welcome';
+import WelcomeGame from './welcome/WelcomeGame';
+import BSTGame from './games/bstgame';
+import TTTreeGame from './games/tttreegame';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
-import Welcome from './welcome/Welcome';
 import './common/common.css';
 injectTapEventPlugin();
 
@@ -38,6 +41,9 @@ class App extends Component {
             <Route path="/queue" component={QueueContainer}/>
             <Route path="/stack" component={StackContainer}/>
             <Route path="/priorityqueue" component={PQContainer}/>
+            <Route path="/game" component={WelcomeGame}/>
+            <Route path="/gamebst" component={BSTGame}/>
+            <Route path="/gametttree" component={TTTreeGame}/>
 
           </div>
         </Router>

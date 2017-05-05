@@ -27,11 +27,14 @@ export function refresh() {
   refresher();
 }
 
-export function reBegin() {
-    tTTree = new TTTree();
-    tTTree.generateTTTree(6);
-    console.log('重新开始');
-    refresh();
+export function reBegin(n) {
+  if (n == null){
+    n = 10;
+  }
+  tTTree = new TTTree();
+  tTTree.generateTTTree(6);
+  console.log('重新开始');
+  refresh();
 }
 
 if (document.body.clientWidth<1000){

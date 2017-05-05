@@ -4,9 +4,7 @@ import {getLevel} from './Control';
 
 
 class BoardSquare extends Component {
-    // componentWillMount(){
-    //   console.log("BoardSquare componentWillMount");
-    // }
+
 
   render() {
       let {children} = this.props;

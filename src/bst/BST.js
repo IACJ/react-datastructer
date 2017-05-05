@@ -226,7 +226,7 @@ export default class BST {
         result += this.get(i) + "]";
         console.log(result);
     }
-    // ====================
+
     randomAdd(){
         this.append(this.getRandomInteger(9, 0));
     }

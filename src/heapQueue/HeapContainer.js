@@ -50,9 +50,10 @@ export default class Container extends Component {
                         }}/>
 
                     <MyDialog label="帮助" title="优先队列(priority queue)" secondary={true} src="https://github.com/IACJ/react-datastructer/blob/master/src/heap/Heap.js">
-                        <h4>"堆"  是一类特殊的数据结构,满足如下性质:</h4>
-                        <p> (1) 堆中某个节点的值总是不大于或不小于其父节点的值；</p>
-                        <p> (2) 堆总是一棵完全二叉树。</p>
+                        <h4>"优先队列(priority queue)"  是计算机科学中的一类抽象数据类型:</h4>
+                        <p> (1) 优先队列中的每个元素都有各自的优先级，优先级最高的元素最先得到服务；</p>
+                        <p> (2) 优先级相同的元素按照其在优先队列中的顺序得到服务；</p>
+                        <p> (3) 优先队列往往用堆来实现.</p>
                         <p> 请通过“拖拽”或“点击按钮”进行操作</p>
                         <p>(提示：打开console查看数据结构操作的log)</p>
                     </MyDialog>

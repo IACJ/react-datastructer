@@ -40,9 +40,12 @@ export function getLevel(i){
   }
   return ans;
 }
-export function reBegin() {
-    bST = new BST();
-    bST.generateBST(10);
-    console.log('重新开始');
-    refresh();
+export function reBegin(n) {
+  if (n == null){
+    n = 10;
+  }
+  bST = new BST();
+  bST.generateBST(n);
+  console.log('重新开始');
+  refresh();
 }

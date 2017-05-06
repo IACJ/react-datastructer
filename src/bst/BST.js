@@ -1,9 +1,9 @@
 class BinaryNode {
 
     constructor(value, leftChild, rightChild) {
-        if (!arguments.length){
+        if (!arguments.length) {
             this.value = null;
-        }else{
+        } else {
             this.value = value;
         }
         this.leftChild = this.rightChild = null;
@@ -57,19 +57,19 @@ export default class BST {
             return true;
     }
 
-    appendhelp(root, value,level) {
-        if (level>=this.MAX_LEVEL){
+    appendhelp(root, value, level) {
+        if (level >= this.MAX_LEVEL) {
             this.appendSuccess = false;
-            console.log('树高超过限高'+this.MAX_LEVEL+'层!');
-            console.log('本次append '+value+' 取消');
+            console.log('树高超过限高' + this.MAX_LEVEL + '层!');
+            console.log('本次append ' + value + ' 取消');
             return null;
         }
         if (root == null)
             return new BinaryNode(value);
         else if (value < root.getValue())
-            root.setLeftChild(this.appendhelp(root.getLeftChild(), value,level+1));
+            root.setLeftChild(this.appendhelp(root.getLeftChild(), value, level + 1));
         else
-            root.setRightChild(this.appendhelp(root.getRightChild(), value,level+1));
+            root.setRightChild(this.appendhelp(root.getRightChild(), value, level + 1));
         return root;
     }
 
@@ -141,6 +141,27 @@ export default class BST {
         return 1 + this.getCountHelp(root.getLeftChild()) + this.getCountHelp(root.getRightChild());
 
     }
+    getNode(position) {
+        if (this.root == null)
+            return null;
+        var array = [];
+        var length = Math.pow(2, this.getHeight()) - 1;
+        array.push(this.root);
+        for (var i = 0; (i < length) && (i !== position + 1); i++) {
+            if (array[i] != null) {
+                if (2 * i + 1 < length)
+                    array[2 * i + 1] = array[i].getLeftChild();
+                if (2 * i + 2 < length)
+                    array[2 * i + 2] = array[i].getRightChild();
+            } else {
+                if (2 * i + 1 < length)
+                    array[2 * i + 1] = null;
+                if (2 * i + 2 < length)
+                    array[2 * i + 2] = null;
+            }
+        }
+        return array[position];
+    }
 
     find(value) {
         return this.findhelp(this.root, value);
@@ -148,17 +169,41 @@ export default class BST {
 
     append(value) {
         this.appendSuccess = false;
-        this.root = this.appendhelp(this.root, value,0);
+        this.root = this.appendhelp(this.root, value, 0);
         return this.appendSuccess;
     }
 
+    // 该方法按值来删除，不适合演示
+    // delete(position) {
+    //     var value = this.get(position);
+    //     if (value == null)
+    //         return null;
+    //     this.deleteSuccess = false;
+    //     this.root = this.deletehelp(this.root, value);
+    //     return this.deleteSuccess;
+    // }
+
     delete(position) {
-        var value = this.get(position);
-        if (value == null)
-            return null;
-        this.deleteSuccess = false;
-        this.root = this.deletehelp(this.root, value);
-        return this.deleteSuccess;
+        var deleteNode = this.getNode(position);
+        if (deleteNode == null)
+            return;
+        if (deleteNode.getLeftChild() == null)
+            deleteNode = deleteNode.getRightChild();
+        else if (deleteNode.getRightChild() == null)
+            deleteNode = deleteNode.getLeftChild();
+        else {
+            deleteNode.setRightChild(this.deletemin(deleteNode.getRightChild(), deleteNode));
+        }
+        if (position === 0) {
+            this.root = deleteNode;
+            return;
+        }
+        var parentPosition = Math.floor((position - 1) / 2);
+        var parentNode = this.getNode(parentPosition);
+        if (2 * parentPosition + 1 === position)
+            parentNode.setLeftChild(deleteNode);
+        else
+            parentNode.setRightChild(deleteNode);
     }
 
     get(position) {
@@ -226,12 +271,14 @@ export default class BST {
         result += this.get(i) + "]";
         console.log(result);
     }
-
-    randomAdd(){
+    // ====================
+    randomAdd() {
         this.append(this.getRandomInteger(9, 0));
     }
-    remove(position){
+    remove(position) {
         return this.delete(position);
     }
 }
+
+
 

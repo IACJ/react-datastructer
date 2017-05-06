@@ -292,6 +292,32 @@ export default class TTTree {
         return copy[0];
     }
 
+    getNode(position) {
+        if (this.root == null)
+            return null;
+        var node = [];
+        var nodeLength = (Math.pow(3, this.getHeight()) - 1) / 2;
+        node.push(this.root);
+        for (var i = 0; (i < nodeLength) && (i !== position + 1); i++) {
+            if (node[i] != null) {
+                if (3 * i + 1 < nodeLength)
+                    node[3 * i + 1] = node[i].left;
+                if (3 * i + 2 < nodeLength)
+                    node[3 * i + 2] = node[i].center;
+                if (3 * i + 3 < nodeLength)
+                    node[3 * i + 3] = node[i].right;
+            } else {
+                if (3 * i + 1 < nodeLength)
+                    node[3 * i + 1] = null;
+                if (3 * i + 2 < nodeLength)
+                    node[3 * i + 2] = null;
+                if (3 * i + 3 < nodeLength)
+                    node[3 * i + 3] = null;
+            }
+        }
+        return node[position];
+    }
+
     append(value) {
         var oldRoot = this.copyTTTree();
         this.root = this.appendHelp(this.root, value);
@@ -306,11 +332,40 @@ export default class TTTree {
         return this.findHelp(this.root, value);
     }
 
+    // 该方法按值来删除，不适合演示
+    // delete(position) {
+    //     var value = this.get(position);
+    //     if (value == null)
+    //         return;
+    //     this.deleteHelp(this.root, value);
+    // }
     delete(position) {
+        var deleteNode = this.getNode(Math.floor(position / 2));
         var value = this.get(position);
-        if (value == null)
+        if (deleteNode == null)
             return;
-        this.deleteHelp(this.root, value);
+        if (value === deleteNode.leftValue) {
+            if (deleteNode.left == null) {
+                deleteNode.leftValue = deleteNode.rightValue;
+                deleteNode.rightValue = null;
+            }
+            else {
+                this.deletemin(deleteNode.center, deleteNode, 0);
+            }
+        }
+        else {
+            if (deleteNode.left == null) {
+                deleteNode.rightValue = null;
+            }
+            else
+                this.deletemin(deleteNode.right, deleteNode, 1);
+        }
+        while ((deleteNode !== this.root) && (deleteNode.leftValue == null)) {
+            this.adjust(deleteNode);
+            deleteNode = this.getParent(deleteNode);
+        }
+        if (this.root.leftValue == null)
+            this.adjust(this.root);
     }
 
     get(position) {
@@ -376,8 +431,8 @@ export default class TTTree {
     }
 
     randomAdd() {
-		var num = this.getRandomInteger(9, 0)
-		console.log("随机添加的数为："+num);
+        var num = this.getRandomInteger(9, 0)
+        console.log("随机添加: " + num);
         this.append(num);
     }
 
@@ -387,6 +442,3 @@ export default class TTTree {
 
 }
 
-
-// WEBPACK FOOTER //
-// ./src/tttree/TTTree.js

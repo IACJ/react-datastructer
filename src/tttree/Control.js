@@ -29,10 +29,10 @@ export function refresh() {
 
 export function reBegin(n) {
   if (n == null){
-    n = 10;
+    n = 6;
   }
   tTTree = new TTTree();
-  tTTree.generateTTTree(6);
+  tTTree.generateTTTree(n);
   console.log('重新开始');
   refresh();
 }

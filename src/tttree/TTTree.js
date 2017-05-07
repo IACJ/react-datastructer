@@ -340,7 +340,8 @@ export default class TTTree {
     //     this.deleteHelp(this.root, value);
     // }
     delete(position) {
-        var deleteNode = this.getNode(Math.floor(position / 2));
+        var deleteNodePosition = Math.floor(position / 2);
+        var deleteNode = this.getNode(deleteNodePosition);
         var value = this.get(position);
         if (deleteNode == null)
             return;
@@ -360,9 +361,11 @@ export default class TTTree {
             else
                 this.deletemin(deleteNode.right, deleteNode, 1);
         }
+
         while ((deleteNode !== this.root) && (deleteNode.leftValue == null)) {
             this.adjust(deleteNode);
-            deleteNode = this.getParent(deleteNode);
+            deleteNodePosition = Math.floor((deleteNodePosition - 1) / 3);
+            deleteNode = this.getNode(deleteNodePosition);
         }
         if (this.root.leftValue == null)
             this.adjust(this.root);
@@ -432,7 +435,7 @@ export default class TTTree {
 
     randomAdd() {
         var num = this.getRandomInteger(9, 0)
-        console.log("随机添加: " + num);
+        console.log("随机增加 ： " + num);
         this.append(num);
     }
 
@@ -441,4 +444,3 @@ export default class TTTree {
     }
 
 }
-

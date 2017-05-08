@@ -12,6 +12,7 @@ import TTTreeContainer from './tttree/TTTreeContainer'
 import QueueContainer from './queue/QueueContainer'
 import StackContainer from './stack/StackContainer'
 import PQContainer from './heapQueue/HeapContainer'
+import HashContainer from './hash/HashContainer'
 import Welcome from './welcome/Welcome';
 import WelcomeGame from './welcome/WelcomeGame';
 import BSTGame from './games/bstgame';
@@ -44,6 +45,8 @@ class App extends Component {
             <Route path="/game" component={WelcomeGame}/>
             <Route path="/gamebst" component={BSTGame}/>
             <Route path="/gametttree" component={TTTreeGame}/>
+            <Route path="/hashtable" component={HashContainer}/>
+            
 
           </div>
         </Router>

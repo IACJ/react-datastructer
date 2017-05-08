@@ -40,7 +40,7 @@ class Welcome extends Component {
             <p> 1. 数据结构页面需要足够的宽度。用户需要用电脑访问本项目，浏览器窗口宽度不够则会导致移位。</p>
             <p> 2. 暂不支持手机端。其实问题2说到底还是问题1，手机屏幕的宽度不足以展示主区域画布，所以本项目暂时不支持手机端。</p>
             <p> 也欢迎大家为我们贡献代码，本项目代码已在GitHub开源:</p>
-            <p><a  href="https://github.com/IACJ/react-datastructer"  title="GitHub地址">https://github.com/IACJ/react-datastructer</a>  </p>
+            <p><a target="_blank" href="https://github.com/IACJ/react-datastructer"  title="GitHub地址">https://github.com/IACJ/react-datastructer</a>  </p>
           </MyDialog>
         </div>
 

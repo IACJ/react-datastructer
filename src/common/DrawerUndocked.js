@@ -38,10 +38,11 @@ export default class DrawerUndocked extends React.Component {
           <Link to="/stack"><MenuItem onTouchTap={this.handleClose}>栈 (Stack) </MenuItem></Link>
           <Link to="/queue"><MenuItem onTouchTap={this.handleClose}>FIFO队列 (Queue)</MenuItem></Link>
           <Link to="/priorityqueue"><MenuItem onTouchTap={this.handleClose}>优先队列 (PQ)</MenuItem></Link>
+          <Link to="/hashtable"><MenuItem onTouchTap={this.handleClose}>哈希表(HashTable)</MenuItem></Link>
           <Link to="/game"><MenuItem onTouchTap={this.handleClose}><p>游戏区</p></MenuItem></Link>
           <Link to="/gamebst"><MenuItem onTouchTap={this.handleClose}>填满BST</MenuItem></Link>
           <Link to="/gametttree"><MenuItem onTouchTap={this.handleClose}>探索二三树</MenuItem></Link>
-
+          
         </Drawer>
       </div>
     );

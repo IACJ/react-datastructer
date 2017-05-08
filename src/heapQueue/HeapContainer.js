@@ -49,7 +49,7 @@ export default class Container extends Component {
                             reBegin();
                         }}/>
 
-                    <MyDialog label="帮助" title="优先队列(priority queue)" secondary={true} src="https://github.com/IACJ/react-datastructer/blob/master/src/heap/Heap.js">
+                    <MyDialog label="帮助" title="优先队列(priority queue)" secondary={true} src="https://github.com/IACJ/react-datastructer/blob/master/src/heapQueue/HeapQueue.js">
                         <h4>"优先队列(priority queue)"  是计算机科学中的一类抽象数据类型:</h4>
                         <p> (1) 优先队列中的每个元素都有各自的优先级，优先级最高的元素最先得到服务；</p>
                         <p> (2) 优先级相同的元素按照其在优先队列中的顺序得到服务；</p>

@@ -101,7 +101,7 @@ export default class HashTable {
     }
 
     generateHashTable() {
-        for (var i = 0; i < 5; i++)
+        for (var i = 0; i < 3; i++)
             this.insert(this.getRandomInteger(9, 0));
         console.log("随机生成的哈希表：")
         this.print();

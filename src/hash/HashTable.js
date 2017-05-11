@@ -6,7 +6,7 @@ export default class HashTable {
         this.length = 10;
         this.threshold = Math.floor(this.loadFactor * this.length);
         this.EMPTY = null;
-        this.TOMB_STONE = "T";
+        this.TOMB_STONE = "۩";
         this.initArray();
     }
 
@@ -48,7 +48,7 @@ export default class HashTable {
 
         var position = this.hash(elem);
         let times=1;
-        for (var i = 1; ((this.arr[position] !== this.EMPTY) || (this.arr[position] === this.TOMB_STONE)); i++) {
+        for (var i = 1; ((this.arr[position] !== this.EMPTY) && (this.arr[position] !== this.TOMB_STONE)); i++) {
             times++;
             position = (this.hash(elem) + this.probe(i)) % this.length;
             if (times > 250){

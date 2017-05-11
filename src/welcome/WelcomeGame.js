@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import DrawerUndocked from '../common/DrawerUndocked';
-import MyDialog from '../common/MyDialog';
+
 
 class Welcome extends Component {
 	render(){

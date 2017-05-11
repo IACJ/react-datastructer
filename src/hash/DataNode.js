@@ -1,11 +1,19 @@
 import React, {Component} from 'react';
 import { DragSource } from 'react-dnd';
 import ItemTypes from '../common/ItemTypes';
-import {getDataStructer,refresh,getMaxNum} from './Control';
+import {getDataStructer,refresh} from './Control';
 import '../common/activeNode.css';
 
 
 const dataNodeSource = {
+    canDrag(props){
+        if( props.id !== "۩"){
+            return true;
+        }else{
+            return false;
+        }
+        
+    },
     beginDrag(props, monitor, component) {
         return {
             name:'dataNode',

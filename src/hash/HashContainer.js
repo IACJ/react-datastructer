@@ -37,10 +37,6 @@ export default class Container extends Component {
       
           <RaisedButton label="随机增添一个数据" primary={true} className="btn" onTouchTap={ 
             function(){ 
-              {/*if (getDataStructer().getLength() >= getMaxNum()){
-                alert('主数据区已满');
-                return;
-              } */}
               getDataStructer().randomAdd();
               refresh();
             }}/>
@@ -57,6 +53,7 @@ export default class Container extends Component {
             <p> 这加快了查找速度。这个映射函数称做散列函数，存放记录的数组称做散列表。</p>
             <p> 本样例中，哈希函数 : Hash(e) = e * e % length</p>
             <p> 探测函数 : Prob(i) = i * i</p>
+            <p> 使用符号"۩"来表示墓碑</p>
             <p> 请通过“拖拽”或“点击按钮”进行操作</p>
             <p>(提示：打开console查看数据结构操作的log)</p>
           </MyDialog>

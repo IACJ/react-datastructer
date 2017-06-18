@@ -1,7 +1,7 @@
 import Heap from './Heap'
 
 let heap = new Heap();
-heap.generateHeap(31);
+heap.generateHeap(12);
 
 export function getDataStructer() {
   return heap;

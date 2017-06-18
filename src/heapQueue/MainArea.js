@@ -5,6 +5,7 @@ import { DropTarget } from 'react-dnd';
 import DataNode from './DataNode';
 import ItemTypes from '../common/ItemTypes';
 import '../common/activeNode.css';
+import Lines from '../common/Lines'
 
 const areaTarget = {
   canDrop(props, monitor) {
@@ -47,32 +48,24 @@ class MainArea extends Component {
     }         
   }
   
-  renderLevel(i){
-    const level = [];
+  renderAll(){
+    const all = [];
     
-    level.push(<div key={100}  style={{flex:1}}></div>);
-    for(let j=Math.pow(2,i)-1;j<Math.pow(2,i+1)-1;j++){
-      level.push(
-        <BoardSquare key={j}  id={j} position='MainArea'>
+    for(let j=0;j<31;j++){
+      all.push(
+        <BoardSquare key={getDataStructer().getKey(j)}  id={j} position='MainArea'>
           {this.renderPiece(j)}
         </BoardSquare>
       );
+      all.push ((this.renderPiece(j)===null)?null:<Lines id={j}/>);
     }
-    level.push(<div key={101} style={{flex:1}}></div>);
-    
-    return (
-      <div key={i} className="Row" >
-        {level}
-      </div>
-    )
+    return all;
   }
   
   render(){
     const { connectDropTarget,isOver, canDrop, } = this.props;
     const levels = [];
-    for (let i = 0; i < 5; i += 1) {
-      levels.push(this.renderLevel(i));
-    }        
+    levels.push(this.renderAll());      
     return connectDropTarget(
 
       <div className='MainArea'>

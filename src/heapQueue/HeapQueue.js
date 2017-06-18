@@ -1,6 +1,8 @@
 export default class Heap {
     constructor() {
         this.heap = [];
+        this.key = [];
+        this.keyIndex = 0;
         this.inlist = [];
         this.outlist = [];
         this.pushtimes = 0;
@@ -33,6 +35,9 @@ export default class Heap {
         var temp = this.heap[index1];
         this.heap[index1] = this.heap[index2];
         this.heap[index2] = temp;
+        var temp = this.key[index1];
+        this.key[index1] = this.key[index2];
+        this.key[index2] = temp;
     }
 
     compareAccordingToHeapType(num1, num2) {
@@ -75,6 +80,7 @@ export default class Heap {
         for (var i = 0; i < array.length; i++) {
             this.inlist[this.pushtimes++] = array[i];
             this.heap[i] = array[i];
+            this.key[i] = this.keyIndex++;
         }
         this.length = array.length;
         this.buildHeap();
@@ -84,6 +90,7 @@ export default class Heap {
         this.inlist[this.pushtimes++] = elem;
         var current = this.length++;
         this.heap[current] = elem;
+        this.key[current] = this.keyIndex++;
         while ((current !== 0) && (this.compareAccordingToHeapType(this.heap[current], this.heap[this.parent(current)]))) {
             this.swap(current, this.parent(current));
             current = this.parent(current);
@@ -190,6 +197,10 @@ export default class Heap {
         return this.heap[i];
     }
 
+    getKey(i){
+        return this.key[i];
+    }
+
     // 与delete同功能的remove函数
     remove(position) {
         this.delete(position);
@@ -200,9 +211,3 @@ export default class Heap {
         this.append(this.getRandomInteger(9, 0));
     }
 }
-
-
-
-
-// WEBPACK FOOTER //
-// ./src/heap/Heap.js

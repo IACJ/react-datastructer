@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import Lines from '../common/Lines'
 import {getLevel} from './Control';
+import BinaryTreePosition from '../common/BinaryTreePosition';
 
 
 class BoardSquare extends Component {
-
 
   render() {
       let {children} = this.props;
@@ -19,32 +18,19 @@ class BoardSquare extends Component {
 
       let style={
             width: '52px',
-            marginLeft: '0.3rem',
-            marginRight: '0.3rem',
-            position:'relative',
+            position:'absolute',
+            left: '10px',
+            transitionProperty:'all',
+            transitionDuration:'1s',
+            zIndex:100,
         }
-
-      switch(getLevel(this.props.id)){
-          case 1:  style.marginLeft= '11.5rem';
-                   style.marginRight= '11.5rem';
-          break;
-          case 2:  style.marginLeft= '5rem';
-                   style.marginRight= '5rem';
-          break;
-          case 3:  style.marginLeft= '1.8rem';
-                   style.marginRight= '1.8rem';
-          break;
-          case 4:  style.marginLeft= '0.1rem';
-                   style.marginRight= '0.1rem';
-          break;
-          default:
-      }
-
+ 
+    style = {...style,...BinaryTreePosition(this.props.id)};
 
       return (
           <div style={style}>
               {children}
-              {(children ===null)?null:<Lines id={this.props.id}/>}
+
           </div>
       );
     }

@@ -5,6 +5,7 @@ import { DropTarget } from 'react-dnd';
 import DataNode from './DataNode';
 import ItemTypes from '../common/ItemTypes';
 import '../common/activeNode.css';
+import Lines from '../common/Lines'
 
 const areaTarget = {
     canDrop(props, monitor) {
@@ -42,48 +43,38 @@ class MainArea extends Component {
             return null;
         }else{
             return  (
-                <DataNode id={getDataStructer().get(i)} 
-                    position={i} 
-                    />
+                <BoardSquare key={getDataStructer().getKey(i)}  id={i} position='MainArea'>
+                    <DataNode id={getDataStructer().get(i)} 
+                        position={i} 
+                        />
+                </BoardSquare>
             );
         }         
     }
 
-    renderLevel(i){
-        const level = [];
-
-        level.push(<div key={100}  style={{flex:1}}></div>);
-        for(let j=Math.pow(2,i)-1;j<Math.pow(2,i+1)-1;j++){
-            level.push(
-                <BoardSquare key={j}  id={j} position='MainArea'>
-                     {this.renderPiece(j)}
-                </BoardSquare>
-            );
-        }
-        level.push(<div key={101} style={{flex:1}}></div>);
-
-        return (
-            <div key={i} className="Row" >
-                {level}
-            </div>
-        )
+  renderAll(){
+    const all = [];
+    
+    for(let j=0;j<31;j++){
+      all.push(this.renderPiece(j));
+      all.push((this.renderPiece(j)===null)?null:<Lines id={j}/>);
     }
+    return all;
+  }
 
     render(){
         const { connectDropTarget,isOver, canDrop, } = this.props;
         const levels = [];
-        for (let i = 0; i < 5; i += 1) {
-            levels.push(this.renderLevel(i));
-        }        
+
+        levels.push(this.renderAll());
+          
         return connectDropTarget(
-            // <div className='nothing'>
+
             <div className='MainArea'>
-                
                 {levels}
                 {!isOver && canDrop && this.renderOverlay('yellow')}
                 {isOver && canDrop && this.renderOverlay('green')}
             </div>
-            //  </div>
         );
     }
 }

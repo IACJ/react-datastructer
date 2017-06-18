@@ -1,12 +1,13 @@
 class BinaryNode {
 
-    constructor(value, leftChild, rightChild) {
+    constructor(value, leftChild, rightChild,key) {
         if (!arguments.length) {
             this.value = null;
         } else {
             this.value = value;
         }
         this.leftChild = this.rightChild = null;
+        this.key = key;
     }
 
     getValue() {
@@ -15,6 +16,13 @@ class BinaryNode {
 
     setValue(value) {
         this.value = value;
+    }
+    getKey() {
+        return this.key;
+    }
+
+    setKey(key) {
+        this.key = key;
     }
 
     getLeftChild() {
@@ -44,6 +52,7 @@ export default class BST {
         this.root = null;
         this.appendSuccess = false;
         this.MAX_LEVEL = 5;
+        this.keyIndex = 0;
     }
 
     findhelp(root, value) {
@@ -65,7 +74,7 @@ export default class BST {
             return null;
         }
         if (root == null)
-            return new BinaryNode(value);
+            return new BinaryNode(value,null,null,this.keyIndex++);
         else if (value < root.getValue())
             root.setLeftChild(this.appendhelp(root.getLeftChild(), value, level + 1));
         else
@@ -76,6 +85,7 @@ export default class BST {
     deletemin(root, deleteNode) {
         if (root.getLeftChild() == null) {
             deleteNode.setValue(root.getValue());
+            deleteNode.setKey(root.getKey());
             return root.getRightChild();
         } else {
             root.setLeftChild(this.deletemin(root.getLeftChild(), deleteNode));
@@ -228,6 +238,30 @@ export default class BST {
         if (array[position] == null)
             return null;
         return array[position].getValue();
+    }
+
+    getKey(position) {
+        if (this.root == null)
+            return null;
+        var array = [];
+        var length = Math.pow(2, this.getHeight()) - 1;
+        array.push(this.root);
+        for (var i = 0; (i < length) && (i !== position + 1); i++) {
+            if (array[i] != null) {
+                if (2 * i + 1 < length)
+                    array[2 * i + 1] = array[i].getLeftChild();
+                if (2 * i + 2 < length)
+                    array[2 * i + 2] = array[i].getRightChild();
+            } else {
+                if (2 * i + 1 < length)
+                    array[2 * i + 1] = null;
+                if (2 * i + 2 < length)
+                    array[2 * i + 2] = null;
+            }
+        }
+        if (array[position] == null)
+            return null;
+        return array[position].getKey();
     }
 
     preorder() {

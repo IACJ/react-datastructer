@@ -1,8 +1,11 @@
 export default class Heap {
     constructor() {
         this.heap = [];
+        this.key = [];
+        this.keyIndex = 0;
         this.length = 0;
         this.isMaxHeap = true;
+
     }
 
     isLeaf(position) {
@@ -29,6 +32,9 @@ export default class Heap {
         var temp = this.heap[index1];
         this.heap[index1] = this.heap[index2];
         this.heap[index2] = temp;
+        var temp = this.key[index1];
+        this.key[index1] = this.key[index2];
+        this.key[index2] = temp;
     }
 
     compareAccordingToHeapType(num1, num2) {
@@ -70,6 +76,7 @@ export default class Heap {
     buildHeapWithArray(array) {
         for (var i = 0; i < array.length; i++){
             this.heap[i] = array[i];
+            this.key[i] = this.keyIndex++;
         }
         this.length = array.length;
         this.buildHeap();
@@ -78,6 +85,7 @@ export default class Heap {
     append(elem) {
         var current = this.length++;
         this.heap[current] = elem;
+        this.key[current] = this.keyIndex++;
         while ((current !== 0) && (this.compareAccordingToHeapType(this.heap[current], this.heap[this.parent(current)]))) {
             this.swap(current, this.parent(current));
             current = this.parent(current);
@@ -85,12 +93,11 @@ export default class Heap {
     }
     /* 该方法暂时不用*/
     insert(position, elem) {
+        console.log("warning!!! unused method")
         if ((position > this.length) || (position < 0)) {
             console.log("位置超出范围");
             return;
         }
-
-
         for (var i = this.length; i > position; i--)
             this.heap[i] = this.heap[i - 1];
         this.heap[position] = elem;
@@ -103,10 +110,11 @@ export default class Heap {
             console.log("位置超出范围");
             return false;
         }
-            
+
         this.swap(0, --this.length);
-        if (this.length)
+        if (this.length){
             this.siftdown(0);
+        }
         return this.heap[this.length];
     }
 
@@ -116,10 +124,11 @@ export default class Heap {
             return false;
         }
         
-            
         this.swap(position, --this.length);
-        if (position === this.length)
+        if (position === this.length){
             return Heap[this.length];
+        }
+
         while ((position !== 0) && (this.compareAccordingToHeapType(position, this.parent(position)))) {
             this.swap(position, this.parent(position));
             position = this.parent(position);
@@ -161,6 +170,10 @@ export default class Heap {
     // 获取位置为i的元素的值
     get(i){
         return this.heap[i];
+    }
+
+    getKey(i){
+        return this.key[i];
     }
 
     // 与delete同功能的remove函数

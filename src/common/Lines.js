@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import BinaryTreePosition from '../common/BinaryTreePosition';
 const style = {
 //   border: '1px dashed gray',
   position: 'absolute',
@@ -314,8 +314,14 @@ export default class Lines extends Component {
 
 
   render() {
+    let style ={
+        position:'absolute',
+        left: '10px',
+        ...BinaryTreePosition(this.props.id),
+        zIndex:0,
+    }
     return (
-        <div className="Lines">
+        <div className="Lines" style={style}>
             {LineSet(this.props.id)}
         </div>
     );

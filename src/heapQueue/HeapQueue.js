@@ -35,7 +35,7 @@ export default class Heap {
         var temp = this.heap[index1];
         this.heap[index1] = this.heap[index2];
         this.heap[index2] = temp;
-        var temp = this.key[index1];
+        temp = this.key[index1];
         this.key[index1] = this.key[index2];
         this.key[index2] = temp;
     }

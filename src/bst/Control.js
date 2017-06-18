@@ -31,15 +31,6 @@ export function getRefresher(o) {
 export function refresh() {
   refresher();
 }
-export function getLevel(i){
-  let ans = 0;
-
-  while (i !== 0 ){
-    ans ++;
-    i = Math.floor((i-1)/2);
-  }
-  return ans;
-}
 export function reBegin(n) {
   if (n == null){
     n = 10;

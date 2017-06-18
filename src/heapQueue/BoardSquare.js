@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {getLevel} from './Control';
+
 import BinaryTreePosition from '../common/BinaryTreePosition';
 
 
